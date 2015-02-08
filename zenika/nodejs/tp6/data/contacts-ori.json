@@ -1,0 +1,8 @@
+[ { "id": 0, "nom": "Wayne", "prenom": "Bruce", "address": "Gotham city", "phone": "555-BATMAN" },
+  { "id": 1, "nom": "Parker", "prenom": "Peter", "address": "New York", "phone": "555-SPDRMN" },
+  { "id": 2, "nom": "Storm", "prenom": "Jane", "address": "Baxter building, New York", "phone": "555-INVGRL" },
+  { "id": 3, "nom": "Richards", "prenom": "Red", "address": "Baxter building, New York", "phone": "555-MRFANT" },
+  { "id": 4, "nom": "Storm", "prenom": "Johnny", "address": "Baxter building, New York", "phone": "555-TORCH" },
+  { "id": 5, "nom": "Grimm", "prenom": "Benjamin", "address": "Baxter building, New York", "phone": "555-THING" },
+  { "id": 6, "nom": "Murdock", "prenom": "Matt", "address": "San Francisco", "phone": "555-DARDVL" },
+  { "id": 7, "nom": "Stark", "prenom": "Tony", "address": "Stark tower, New York", "phone": "555-IRNMAN" } ]

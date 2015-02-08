@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="span12">
+        <div class="well">
+            <h2>Edit contact</h2>
+
+            <form action="" method="post" class="form-horizontal" name="contactForm">
+                <div class="control-group {{!contactForm.nom.$error.required || 'error'}}">
+                    <label for="nom" class="control-label">First name</label>
+
+                    <div class="controls">
+                        <input type="text" name="nom" id="nom" class="input-xlarge" data-ng-model="contact.nom" required=""/><br/>
+                        <span class="help-inline" data-ng-show="contactForm.nom.$error.required">Required</span>
+                    </div>
+                </div>
+                <div class="control-group {{!contactForm.prenom.$error.required || 'error'}}">
+                    <label for="prenom" class="control-label">Last name</label>
+
+                    <div class="controls">
+                        <input type="text" name="prenom" id="prenom" class="input-xlarge" data-ng-model="contact.prenom" required=""/><br/>
+                        <span class="help-inline" data-ng-show="contactForm.prenom.$error.required">Required</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label for="address" class="control-label">Address</label>
+
+                    <div class="controls">
+                        <textarea rows="3" name="address" id="address" class="input-xlarge" data-ng-model="contact.address"></textarea>
+                    </div>
+                </div>
+                <div class="control-group {{!contactForm.phone.$error.required && !contactForm.phone.$error.pattern || 'error'}}">
+                    <label for="phone" class="control-label">Phone</label>
+
+                    <div class="controls">
+                        <input type="text" name="phone" id="phone" class="input-xlarge" data-ng-model="contact.phone" required data-ng-pattern=/^555-\w{1,6}$/ /><br/>
+                        <span class="help-inline" data-ng-show="contactForm.phone.$error.required || contactForm.phone.$error.pattern">Required, format 555-XXXXXX</span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Save" class="btn btn-primary" data-ng-click="saveContact(contact)" data-ng-disabled="contactForm.$invalid"/>
+                        <a href="#/list" class="btn btn-link">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

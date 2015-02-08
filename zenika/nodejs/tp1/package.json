@@ -1,0 +1,16 @@
+{
+  "name": "Tp1",
+  "version": "0.0.1",
+  "description": "Tp Node JS",
+  "main": "contacts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colours": "^0.6.0-2",
+    "commander": "^2.5.1",
+    "underscore": "^1.7.0"
+  }
+}

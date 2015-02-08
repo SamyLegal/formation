@@ -1,0 +1,9 @@
+writeImplems.generator(content).then(function(data){
+  var elapsedTime = new Date() - startTime;
+  console.log("Temps écoulé avec xxx", elapsedTime, 'ms');
+  //console.log(data);
+  callback();
+}, function(err){
+  console.log(err);
+  callback();
+});

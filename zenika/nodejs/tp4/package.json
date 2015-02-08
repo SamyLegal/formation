@@ -1,0 +1,21 @@
+{
+  "name": "Tp4",
+  "version": "0.0.1",
+  "description": "Formation Node JS - TP4 : Modularisation",
+  "main": "contacts.js",
+  "keywords": "NodeJS, TP4, Modularisation",
+  "main":"",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "http://www.mgdis.fr",
+  "repository": "http://www.github.com/tp4",
+  "author": "Samuel LE GAL <legal-s@mgdis.fr>",
+  "contributors": [],
+  "license": "ISC",
+  "dependencies": {
+    "colours": "^0.6.0-2",
+    "commander": "^2.5.1",
+    "underscore": "^1.7.0"
+  }
+}
