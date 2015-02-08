@@ -1,0 +1,13 @@
+<div class="jumbotron text-center">
+	{{recaptcha}}
+</div>
+<div class="row">
+	<div class="col-sm-6 col-md-4">
+		<form name="formRecaptcha" method="POST">
+			<div vc-recaptcha key="'6LcZOAATAAAAAJZWFgnNc4RJ1wk1m5kwS93562CQ'" on-success="onSuccess(response)"></div>
+			response : {{response}}
+
+			<button ng-click="demandeContact()">Demande de contact</button>
+		</form>
+	</div>
+</div>
