@@ -1,7 +1,11 @@
-angular.module("moviesApp", []).config(["$parseProvider", function($parseProvider) {
+/**
+ * Project who explain how to use promises with angular.
+ * All examples on this project, use the API of service "The MovieDb" https://www.themoviedb.org/documentation/api
+ */
+angular.module("moviesApp", ['angular-extend-promises']).config(["$parseProvider", function($parseProvider) {
 
   // Angular 1.2 - Configuration of $parseProvider for authorize resolving promises in the view.
-  // This behaviour is deprecated in 1.2 and is not possible in 1.3.
+  // This behaviour is deprecated in 1.2 and deleted in 1.3.
   if (angular.version.minor === 2) {
     $parseProvider.unwrapPromises(true);
     $parseProvider.logPromiseWarnings(true);
@@ -21,6 +25,14 @@ angular.module("moviesApp").controller("searchMoviesController", ["$scope", "$ht
 
   $scope.query = "Retour vers le futur";
 
+  function getConfiguration() {
+    return $http({
+      method: "GET",
+      url: baseUrl + "configuration",
+      params: angular.extend({}, baseParams)
+    });
+  }
+
   function getMovie(idMovie) {
     return $http({
         method: "GET",
@@ -30,7 +42,7 @@ angular.module("moviesApp").controller("searchMoviesController", ["$scope", "$ht
       .then(function(response) {
         return response.data;
       })
-      .then(function(movie){
+      .then(function(movie) {
         cleanGenres(movie);
         return movie;
       });
@@ -38,7 +50,7 @@ angular.module("moviesApp").controller("searchMoviesController", ["$scope", "$ht
 
   function cleanGenres(movie) {
     var genres = [];
-    movie.genres.forEach(function(genre){
+    movie.genres.forEach(function(genre) {
       genres.push(genre.name);
     });
 
@@ -59,6 +71,10 @@ angular.module("moviesApp").controller("searchMoviesController", ["$scope", "$ht
       });
   }
 
+  $scope.cleanMovies = function() {
+    $scope.movies = null;
+  };
+
   $scope.searchMovies = function() {
 
     $http({
@@ -69,10 +85,15 @@ angular.module("moviesApp").controller("searchMoviesController", ["$scope", "$ht
         })
       })
       .then(function(response) {
-        return getInformationsOnMovies(response.data.results);
-      })
-      .then(function(movies) {
-        $scope.movies = movies;
+        if (response && response.data && response.data.results) {
+          return $q.all([getConfiguration(), getInformationsOnMovies(response.data.results)])
+            .spread(function(configuration, movies) {
+              $scope.configuration = configuration;
+              $scope.movies = movies;
+            });
+        } else {
+
+        }
       })
       .catch(function(e) {
         $scope.error = e;

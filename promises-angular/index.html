@@ -23,39 +23,60 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form role="form" name="formSearchMovies" novalidate>
+                <form role="form" name="formSearchMovies" novalidate action="">
                     <fieldset>
                         <legend>Recherche de films : </legend>
                         <div class="form-group">
                             <label for="title">Recherche : </label>
-                            <input type="text" class="form-control" ng-model="query" required>
+                            <input type="text" class="form-control" ng-model="query" ng-change="cleanMovies()" required>
                         </div>
-                        <button type="button" ng-click="searchMovies()" ng-disabled="formSearchMovies.$invalid" class="btn btn-default">Rechercher</button>
+                        <button type="button" ng-click="searchMovies()" ng-disabled="formSearchMovies.$invalid" class="btn btn-default">
+                            Rechercher
+                        </button>
                     </fieldset>
                 </form>
                 <br>
                 <br>
             </div>
         </div>
-        <div class="row">
+        <div class="row" ng-if="query &amp;&amp; movies">
             <div class="col-md-12">
                 <fieldset>
                     <legend>Résultats</legend>
+
+                    <!--  Aucun résultats -->
+                    <div class="alert alert-warning" role="alert" ng-if="movies.length===0">
+                        Aucun résultats pour votre recherche : <strong>"{{query}}"</strong>
+                    </div>
+
+                    <!-- Résultats -->
                     <div class="panel panel-default" ng-repeat="movie in movies">
                         <div class="panel-heading">{{movie.title}}</div>
                         <div class="panel-body">
-                            <strong>Année : </strong>{{movie.release_date}}<br />
-                            <strong>Genres : </strong>{{movie.genres}}<br />
-                            <strong>Résumé :</strong> {{movie.overview}}
-                            <pre>{{movie|json}}</pre>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img ng-src="https://api.themoviedb.org/3/movie/550/images?api_key={{baseParams.apiKey}}&language=fr&include_image_language=fr">
+                                    <img ng-src="{{configuration.data.images.base_url}}{{movie.backdrop_path}}">
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>Année : </strong>{{movie.release_date}}
+                                    <br />
+                                    <strong>Genres : </strong>{{movie.genres}}
+                                    <br />
+                                    <strong>Résumé :</strong> {{movie.overview}}
+                                    <pre>{{movie|json}}</pre>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </fieldset>
             </div>
         </div>
     </div>
-    <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-extend-promises/angular-extend-promises.js"></script>
     <script src="js/app.js"></script>
 </body>
 

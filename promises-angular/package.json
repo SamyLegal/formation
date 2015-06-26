@@ -4,7 +4,10 @@
   "description": "Exemples de code sur l'utilisation des promesses",
   "main": "app.js",
   "dependencies": {
+    "angular": "^1.4.1",
+    "angular-extend-promises": "^1.0.0-rc.3",
     "bluebird": "^2.9.27",
+    "jquery": "^2.1.4",
     "proxy-middleware": "^0.13.0"
   },
   "devDependencies": {
