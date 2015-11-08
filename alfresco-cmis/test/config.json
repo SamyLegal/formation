@@ -1,0 +1,17 @@
+{
+  "type": "alfresco",
+  "alfresco": {
+    "repositoryUrl": "http://192.168.99.100:8080/alfresco/api/crpldeva/public/cmis/versions/1.1/browser",
+    "auth": {
+      "username": "admin@crpldeva",
+      "password": "crpldeva"
+    }
+  },
+  "lightweightCmis": {
+    "repositoryUrl": "http://crpldeva-front-annexes:8080/opencmis/browser",
+    "auth": {
+      "username": "admin",
+      "password": "Mgdis01"
+    }
+  }
+}
