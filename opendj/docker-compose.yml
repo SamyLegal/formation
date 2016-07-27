@@ -1,0 +1,7 @@
+opendj:
+  image: lusis/opendj
+  container_name: opendj
+  ports:
+    - "1389:1389"
+    - "1636:1636"
+    - "4444:4444"

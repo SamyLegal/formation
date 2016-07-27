@@ -1,0 +1,19 @@
+# Serveur alfresco
+nginx:
+  image: nginx
+  container_name: nginx
+
+# Serveur de base de données MySQL pour alfresco
+mysql:
+  image: mysql
+  container_name: mysql-alfresco
+  volumes:
+    # Pour le volume de la base mysql, nous mettons les données dans le répertoire /tmp car
+    # impossible d'accéder au répertoire /Users sur Mac avec mysql
+    - /tmp/alfresco/mysql:/var/lib/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=alfresco
+    - MYSQL_DATABASE=alfresco
+    - MYSQL_USER=alfresco
+    - MYSQL_PASSWORD=alfresco
+    - "constraint:node==data-server"
