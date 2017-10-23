@@ -6,7 +6,6 @@ On y trouve des projets sur :
 
 * [Alfresco - CMIS](alfresco-cmis)
 * [Docker](docker)
-* [Nodeschool.io](nodeschool.io)
 * [OpenDJ](opendj)
-* [Promises - Angular](promises-angular)
+* [Promises](promises)
 * [Recaptcha](recaptcha)
